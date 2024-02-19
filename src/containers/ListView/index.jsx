@@ -55,7 +55,9 @@ export class ListView extends React.Component {
     );
   }
 }
-ListView.defaultProps = {};
+ListView.defaultProps = {
+  location: '',
+};
 ListView.propTypes = {
   // redux
   courseId: PropTypes.string.isRequired,
@@ -63,6 +65,7 @@ ListView.propTypes = {
   isLoaded: PropTypes.bool.isRequired,
   hasError: PropTypes.bool.isRequired,
   isEmptySubmissionData: PropTypes.bool.isRequired,
+  location: PropTypes.object,
 };
 
 export const mapStateToProps = (state) => ({

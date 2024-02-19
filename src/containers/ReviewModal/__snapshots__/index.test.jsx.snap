@@ -9,6 +9,7 @@ exports[`ReviewModal component component snapshots closed 1`] = `
     </React.Fragment>
   }
   className="review-modal"
+  hasCloseButton={true}
   isOpen={false}
   modalBodyClassName="review-modal-body"
   onClose={[MockFunction hooks.onClose]}
@@ -29,6 +30,7 @@ exports[`ReviewModal component component snapshots loading 1`] = `
     </React.Fragment>
   }
   className="review-modal"
+  hasCloseButton={true}
   isOpen={true}
   modalBodyClassName="review-modal-body"
   onClose={[MockFunction hooks.onClose]}
@@ -59,6 +61,7 @@ exports[`ReviewModal component component snapshots success 1`] = `
     </React.Fragment>
   }
   className="review-modal"
+  hasCloseButton={true}
   isOpen={true}
   modalBodyClassName="review-modal-body"
   onClose={[MockFunction hooks.onClose]}

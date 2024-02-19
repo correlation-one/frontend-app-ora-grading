@@ -112,6 +112,11 @@ exports[`SubmissionsTable component component render tests snapshots snapshot: h
       Array [
         <mockConstructor
           handleClick={[MockFunction this.handleViewAllResponsesClick]}
+          handleClickRef={
+            Object {
+              "current": null,
+            }
+          }
         />,
       ]
     }
@@ -233,6 +238,11 @@ exports[`SubmissionsTable component component render tests snapshots snapshot: t
       Array [
         <mockConstructor
           handleClick={[MockFunction this.handleViewAllResponsesClick]}
+          handleClickRef={
+            Object {
+              "current": null,
+            }
+          }
         />,
       ]
     }

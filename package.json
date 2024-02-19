@@ -13,10 +13,11 @@
     "lint-fix": "fedx-scripts eslint --fix --ext .jsx,.js src/",
     "semantic-release": "semantic-release",
     "start": "fedx-scripts webpack-dev-server --progress",
-    "start-dev": "fedx-scripts webpack-dev-server --progress --host lmsbe.local.correlation-one.com",
     "test": "TZ=GMT fedx-scripts jest --coverage --passWithNoTests",
     "watch-tests": "jest --watch",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "start-dev": "fedx-scripts webpack-dev-server --progress --host lmsbe.local.correlation-one.com",
+    "update-snapshot": "TZ=GMT fedx-scripts jest --updateSnapshot"
   },
   "author": "edX",
   "license": "AGPL-3.0",
@@ -26,6 +27,7 @@
   },
   "dependencies": {
     "@edx/brand": "npm:@edx/brand-edx.org@^2.0.3",
+    "@edx/browserslist-config": "^1.2.0",
     "@edx/frontend-component-footer": "^11.1.1",
     "@edx/frontend-component-header": "^3.1.1",
     "@edx/frontend-platform": "^2.5.1",
