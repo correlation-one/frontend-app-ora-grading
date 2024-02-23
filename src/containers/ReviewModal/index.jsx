@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import { FullscreenModal } from '@edx/paragon';
 import { injectIntl, intlShape } from '@edx/frontend-platform/i18n';
+import { specificSubmissionId } from 'data/constants/app';
 
 import LoadingMessage from 'components/LoadingMessage';
 import DemoWarning from 'containers/DemoWarning';
@@ -29,6 +30,7 @@ export const ReviewModal = ({ intl }) => {
   } = hooks.rendererHooks({ dispatch, intl });
   return (
     <FullscreenModal
+      hasCloseButton={specificSubmissionId() === undefined}
       title={title}
       isOpen={isOpen}
       beforeBodyNode={(

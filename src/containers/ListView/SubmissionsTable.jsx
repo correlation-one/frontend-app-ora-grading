@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import moment from 'moment';
+import { specificSubmissionId } from 'data/constants/app';
 
 import {
   DataTable,
@@ -26,6 +27,19 @@ import messages from './messages';
  * <SubmissionsTable />
  */
 export class SubmissionsTable extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleClickRef = React.createRef();
+  }
+
+  componentDidMount() {
+    // If we have a specific submission id set
+    // send an event to click the open modal button
+    if (specificSubmissionId() !== undefined) {
+      this.handleClickRef.current.click();
+    }
+  }
+
   get gradeStatusOptions() {
     return Object.keys(gradingStatuses).map(statusKey => ({
       name: this.translate(lmsMessages[gradingStatuses[statusKey]]),
@@ -64,7 +78,12 @@ export class SubmissionsTable extends React.Component {
 
   handleViewAllResponsesClick = (data) => () => {
     const getsubmissionUUID = (row) => row.original.submissionUUID;
-    this.props.loadSelectionForReview(data.map(getsubmissionUUID));
+    // If a specific submission is selected, filter data
+    let filterData = data;
+    if (specificSubmissionId() !== undefined) {
+      filterData = filterData.filter(r => r.original.submissionUUID === specificSubmissionId());
+    }
+    this.props.loadSelectionForReview(filterData.map(getsubmissionUUID));
   };
 
   render() {
@@ -85,7 +104,7 @@ export class SubmissionsTable extends React.Component {
           initialState={{ pageSize: 10, pageIndex: 0 }}
           data={this.props.listData}
           tableActions={[
-            <TableAction handleClick={this.handleViewAllResponsesClick} />,
+            <TableAction handleClick={this.handleViewAllResponsesClick} handleClickRef={this.handleClickRef} />,
           ]}
           bulkActions={[
             <SelectedBulkAction handleClick={this.handleViewAllResponsesClick} />,

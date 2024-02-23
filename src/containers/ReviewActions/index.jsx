@@ -7,6 +7,7 @@ import { FormattedMessage } from '@edx/frontend-platform/i18n';
 
 import { actions, selectors } from 'data/redux';
 import { RequestKeys } from 'data/constants/requests';
+import { specificSubmissionId } from 'data/constants/app';
 
 import StatusBadge from 'components/StatusBadge';
 import StartGradingButton from './components/StartGradingButton';
@@ -27,7 +28,7 @@ export const ReviewActions = ({
     <ActionRow className="review-actions">
       <span className="review-actions-username">
         <span className="lead">{userDisplay}</span>
-        { gradingStatus && (
+        {gradingStatus && (
           <StatusBadge className="review-actions-status mr-3" status={gradingStatus} />
         )}
         <span className="small">
@@ -48,7 +49,7 @@ export const ReviewActions = ({
             <StartGradingButton />
           </>
         )}
-        <SubmissionNavigation />
+        {specificSubmissionId() === undefined && <SubmissionNavigation />}
       </div>
     </ActionRow>
   </div>

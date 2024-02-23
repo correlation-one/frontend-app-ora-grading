@@ -114,6 +114,7 @@ jest.mock('@edx/paragon/icons', () => ({
 
 jest.mock('data/constants/app', () => ({
   locationId: () => 'fake-location-id',
+  specificSubmissionId: () => undefined,
 }));
 
 jest.mock('hooks', () => ({
